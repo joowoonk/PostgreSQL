@@ -9,6 +9,15 @@ app.use(express.json()); //=> req.body
 
 //get all todos
 
+app.get("/todos", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM todo");
+
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 //get a todo
 
 //create a todo
@@ -17,11 +26,11 @@ app.post("/todos", async (req, res) => {
     //await
     const { description } = req.body;
     const newTodo = await pool.query(
-      "INSERT INTO todo (description) VALUES ($1) RETURNING *", //$1 is a vairable it's going to defin what's going to be ->
+      "INSERT INTO todo (description) VALUES ($1) RETURNING *", //$1 is a vairable it's going to defin what's going to be -> [description]
       [description]
     );
 
-    res.json(newTodo);
+    res.json(newTodo.rows[0]);
     console.log(req.body);
   } catch (err) {
     console.error(err.message);
