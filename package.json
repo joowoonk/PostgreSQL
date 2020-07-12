@@ -1,0 +1,28 @@
+{
+  "name": "postgresql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joowoonk/PostgreSQL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joowoonk/PostgreSQL/issues"
+  },
+  "homepage": "https://github.com/joowoonk/PostgreSQL#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "pg": "^8.3.0"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
+}
